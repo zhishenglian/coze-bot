@@ -28,5 +28,10 @@ if __name__ == "__main__":
         q = input("你：")
         if q.lower() in ("quit", "q"):
             break
-        ans = ask_bot(q)
-        print("Bot：", ans["messages"][0]["content"])
+    ans = ask_bot(q)          # 先拿到返回
+    if ans.get("code") == 4101:
+    - 把第 33 行 `print` 改成：
+```python
+print("Bot：", ans["messages"][0]["content"])
+    else:
+        print("Bot:", ans["messages"][0]["content"])
